@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="/action_page.php">
+         Roll the dice! 
+         <p id="sum"></p>
+      <button type="button" onclick="getRoll()">Roll the dice</button>
+    </form>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript">
+      function getRoll() {
+          //var x = $("#numDice").val();
+          $.getJSON( "/rollNdice/", function( data ) {
+            document.getElementById("sum").innerHTML  = data["sum"] 
+          });
+      }
+  </script>
+</html>
